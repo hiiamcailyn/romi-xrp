@@ -47,11 +47,11 @@ XRPMotor  m_right = new XRPMotor(1);
 
   @Override
   public void teleopPeriodic() {
-    double left_stick = m_cailyn.getLeftY();
-    double right_stick = m_cailyn.getRightY();
+    double left_stick = -m_cailyn.getLeftY();
+    double right_stick = -m_cailyn.getRightY();
     m_left.set(left_stick);
     m_right.set(right_stick);
-    
+
 
   }
 
