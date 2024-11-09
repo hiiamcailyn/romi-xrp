@@ -6,17 +6,25 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.xrp.XRPMotor;
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
  * each mode, as described in the TimedRobot documentation. If you change the name of this class or
  * the package after creating this project, you must also update the build.gradle file in the
  * project.
  */
+import edu.wpi.first.wpilibj.xrp.XRPMotor;
 public class Robot extends TimedRobot {
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
    */
+
+XboxController m_cailyn = new XboxController(0);
+XRPMotor  m_left = new XRPMotor(0);
+XRPMotor  m_right = new XRPMotor(1);
+
   @Override
   public void robotInit() {}
 
@@ -30,10 +38,24 @@ public class Robot extends TimedRobot {
   public void autonomousPeriodic() {}
 
   @Override
-  public void teleopInit() {}
+  public void teleopInit() {
+
+    m_right.setInverted(true);
+  }
+
+  
 
   @Override
-  public void teleopPeriodic() {}
+  public void teleopPeriodic() {
+    double left_stick = m_cailyn.getLeftY();
+    double right_stick = m_cailyn.getRightY();
+    m_left.set(left_stick);
+    m_right.set(right_stick);
+    
+
+  }
+
+
 
   @Override
   public void disabledInit() {}
