@@ -16,16 +16,17 @@ import edu.wpi.first.wpilibj.xrp.XRPServo;
  * project.
  */
 
-public class Robot extends TimedRobot {
+public class Robot extends TimedRobot
+ {
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
    */
 
-XboxController m_cailyn = new XboxController(0);
-XRPMotor  m_left = new XRPMotor(0);
-XRPMotor  m_right = new XRPMotor(1);
-XRPServo a_Servo = new XRPServo(4);
+  XboxController m_cailyn = new XboxController(0);
+  XRPMotor  m_left = new XRPMotor(0);
+  XRPMotor  m_right = new XRPMotor(1);
+  XRPServo a_Servo = new XRPServo(4);
 
   @Override
   public void robotInit() {}
@@ -48,7 +49,6 @@ XRPServo a_Servo = new XRPServo(4);
   }
 
   
-
   @Override
   public void teleopPeriodic() 
   {
@@ -57,20 +57,15 @@ XRPServo a_Servo = new XRPServo(4);
     m_left.set(left_stick);
     m_right.set(right_stick);
     boolean hi = m_cailyn.getAButton();
-    if (hi) {
-
+    if (hi) 
+    {
       a_Servo.setAngle(90);
-      
     }
-    else {
-
-    a_Servo.setAngle(0);
-
-    }
-    
-
-
-
+      else
+       {
+         a_Servo.setAngle(0);
+        }
+  
   }
 
 
