@@ -24,8 +24,8 @@ public class Robot extends TimedRobot
    */
 
   XboxController m_cailyn = new XboxController(0);
-  XRPMotor  m_left = new XRPMotor(0);
-  XRPMotor  m_right = new XRPMotor(1);
+  XRPMotor m_left = new XRPMotor(0);
+  XRPMotor m_right = new XRPMotor(1);
   XRPServo a_Servo = new XRPServo(4);
 
   @Override
@@ -41,7 +41,8 @@ public class Robot extends TimedRobot
   public void autonomousPeriodic() {}
 
   @Override
-  public void teleopInit() {
+  public void teleopInit() 
+  {
 
     m_right.setInverted(true);
     a_Servo.setAngle(90);
@@ -61,10 +62,10 @@ public class Robot extends TimedRobot
     {
       a_Servo.setAngle(90);
     }
-      else
-       {
-         a_Servo.setAngle(0);
-        }
+    //  else
+    //    {
+    //      a_Servo.setAngle(0);
+    //     }
   
   }
 
