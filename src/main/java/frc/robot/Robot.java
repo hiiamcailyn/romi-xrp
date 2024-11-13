@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.xrp.XRPServo;
  * the package after creating this project, you must also update the build.gradle file in the
  * project.
  */
-import edu.wpi.first.wpilibj.xrp.XRPMotor;
+
 public class Robot extends TimedRobot {
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -43,14 +43,15 @@ XRPServo a_Servo = new XRPServo(4);
   public void teleopInit() {
 
     m_right.setInverted(true);
-    a_Servo.setAngle(45);
+    a_Servo.setAngle(90);
 
   }
 
   
 
   @Override
-  public void teleopPeriodic() {
+  public void teleopPeriodic() 
+  {
     double left_stick = -m_cailyn.getLeftY();
     double right_stick = -m_cailyn.getRightY();
     m_left.set(left_stick);
@@ -61,7 +62,11 @@ XRPServo a_Servo = new XRPServo(4);
       a_Servo.setAngle(90);
       
     }
+    else {
 
+    a_Servo.setAngle(0);
+
+    }
     
 
 
