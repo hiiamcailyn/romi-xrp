@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.xrp.XRPMotor;
+import edu.wpi.first.wpilibj.xrp.XRPServo;
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
  * each mode, as described in the TimedRobot documentation. If you change the name of this class or
@@ -24,6 +25,7 @@ public class Robot extends TimedRobot {
 XboxController m_cailyn = new XboxController(0);
 XRPMotor  m_left = new XRPMotor(0);
 XRPMotor  m_right = new XRPMotor(1);
+XRPServo a_Servo = new XRPServo(4);
 
   @Override
   public void robotInit() {}
@@ -41,6 +43,8 @@ XRPMotor  m_right = new XRPMotor(1);
   public void teleopInit() {
 
     m_right.setInverted(true);
+    a_Servo.setAngle(45);
+
   }
 
   
@@ -51,6 +55,15 @@ XRPMotor  m_right = new XRPMotor(1);
     double right_stick = -m_cailyn.getRightY();
     m_left.set(left_stick);
     m_right.set(right_stick);
+    boolean hi = m_cailyn.getAButton();
+    if (hi) {
+
+      a_Servo.setAngle(90);
+      
+    }
+
+    
+
 
 
   }
